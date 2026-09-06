@@ -1,0 +1,34 @@
+{
+  "sharded": true,
+  "vindexes": {
+    "xxhash": {
+      "type": "xxhash"
+    }
+  },
+  "tables": {
+    "users": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "xxhash"
+        }
+      ]
+    },
+    "products": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "xxhash"
+        }
+      ]
+    },
+    "product_reviews": {
+      "column_vindexes": [
+        {
+          "column": "user_id",
+          "name": "xxhash"
+        }
+      ]
+    }
+  }
+}

@@ -75,7 +75,7 @@ spec:
         memory: 128Mi
 
   keyspaces:
-  - name: commerce
+  - name: db
     durabilityPolicy: none
     turndownPolicy: Immediate
     vitessOrchestrator:
@@ -91,7 +91,7 @@ spec:
         log-format: text
     partitionings:
     - equal:
-        parts: 1
+        parts: 4
         shardTemplate:
           databaseInitScriptSecret:
             name: vitess-secret
@@ -99,7 +99,7 @@ spec:
           tabletPools:
           - cell: zone1
             type: replica
-            replicas: 2
+            replicas: 1
             vttablet:
               extraFlags:
                 db-charset: utf8mb4
